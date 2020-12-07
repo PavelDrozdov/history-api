@@ -4,7 +4,13 @@ function Header (children = '') {
   function render () {
     return `
       <Header>
-        router SPA
+        <div>router SPA</div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#main">main</a></li>
+            <li><a href="#cards">cards</a></li>
+          </ul>
+        </nav>
       </Header>
     `
   }

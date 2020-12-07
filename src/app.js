@@ -1,13 +1,12 @@
-import { Main } from './pages';
 import './scss/app.scss'
+import { Router } from './router';
 
-(function init(root, html){
+(function init(root){
+  console.log('init')
   document.getElementById(root).innerHTML = app();
 })('app-root')
 
 
 function app() {
-  return `
-    ${Main()}
-  `;
+  return Router();
 }
