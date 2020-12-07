@@ -1,12 +1,12 @@
 import { Main, Cards, FullCard } from './pages';
 
 
-function navigator(path, param) {
+function navigator(path, param, urlParams) {
   switch(path){
     case 'main':
       return Main(param);
     case 'cards':
-      return Cards(param);
+      return Cards(param, urlParams);
     case 'full-card':
       return FullCard(param);
     default:
@@ -15,9 +15,10 @@ function navigator(path, param) {
 }
 
 const Router = (e) => {
-  let [path, param] = location.hash.replace('#', '').split('/')
-  console.log(path, param)
-  return navigator(path, param);
+  const [hash] = location.hash.split('?')
+  const [path, param] = hash.replace('#', '').split('/')
+  const urlParams = new URLSearchParams(window.location.search);
+  return navigator(path, param, urlParams);
 }
 
 export { Router }
