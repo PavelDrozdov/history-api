@@ -1,6 +1,6 @@
 import { Header } from '../header/header';
 
-function Layout (children = '') {
+function Layout (children, {...props}= {}) {
   function render () {
     return `
       <div>

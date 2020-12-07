@@ -1,6 +1,6 @@
 import './header.scss';
 
-function Header (children = '') {
+function Header (children, {...props}= {}) {
   function render () {
     return `
       <Header>
