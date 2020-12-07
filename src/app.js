@@ -1,12 +1,16 @@
 import './scss/app.scss'
 import { Router } from './router';
 
-(function init(root){
-  console.log('init')
-  document.getElementById(root).innerHTML = app();
-})('app-root')
+window.onload = (e) => {
+  console.log('onload')
+  app(e)
+};
 
+window.onhashchange = (e) => {
+  console.log('onhashchange')
+  app(e);
+};
 
-function app() {
-  return Router();
+function app(e) {
+  document.getElementById('app-root').innerHTML= Router(e);
 }

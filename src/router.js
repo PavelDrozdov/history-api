@@ -1,9 +1,19 @@
-import { Main } from './pages';
+import { Main, Cards } from './pages';
 
-const Router = () => {
-  return `
-    ${Main()}
-  `
+
+function navigator(path) {
+  switch(path){
+    case 'main':
+      return Main();
+    case 'cards':
+      return Cards();
+    default:
+      return Main();
+  }
+}
+
+const Router = (e) => {
+  return navigator(location.hash.replace('#', ''));
 }
 
 export { Router }
