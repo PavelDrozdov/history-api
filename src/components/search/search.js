@@ -9,7 +9,7 @@ function Search (children, {search, ...props}= {}) {
       const url = new URL(window.location.href);
       url.searchParams.set('search', document.getElementById('app-search-input').value)
       window.location.href = url.href;
-    })
+    });
   },0)
 
   function render () {

@@ -1,6 +1,22 @@
 import './header.scss';
 
 function Header (children, {...props}= {}) {
+
+  setTimeout(() => {
+    const container = document.querySelector('.main-nav');
+    container.addEventListener('click', function(e) {
+      if (e.target != e.currentTarget) {
+        e.preventDefault();
+
+        var data = e.target.getAttribute('href'),
+        url = data;
+        history.pushState(null, null, url);
+      }
+        e.stopPropagation();
+    }, false);
+  }, 0)
+
+
   function render () {
     return `
       <Header>
