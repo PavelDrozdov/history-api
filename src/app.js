@@ -3,14 +3,21 @@ import { Router } from './router';
 
 window.onload = (e) => {
   console.log('onload')
-  app(e)
+  app();
 };
 
-window.onhashchange = (e) => {
-  console.log('onhashchange')
-  app(e);
-};
+let oldURL = '';
+setInterval(() => {
+  if(oldURL !== window.location.href ) {
+    console.log('== setInterval init rerender');
 
-function app(e) {
-  document.getElementById('app-root').innerHTML= Router(e);
+    oldURL = window.location.href;
+    app();
+  }
+}, 50);
+
+function app() {
+  console.log('== app render');
+
+  document.getElementById('app-root').innerHTML= Router();
 }

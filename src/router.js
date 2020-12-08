@@ -14,11 +14,11 @@ function navigator(path, param, urlParams) {
   }
 }
 
-const Router = (e) => {
-  const [hash] = location.hash.split('?')
-  const [path, param] = hash.replace('#', '').split('/')
-  const urlParams = new URLSearchParams(window.location.search);
-  return navigator(path, param, urlParams);
+const Router = () => {
+  const url = new URLSearchParams(location.pathname);
+  const [_, path, param] = location.pathname.split('/');
+  console.log(path, param, url)
+  return navigator(path, param, url);
 }
 
 export { Router }
