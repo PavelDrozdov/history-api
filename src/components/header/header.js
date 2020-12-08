@@ -10,10 +10,10 @@ function Header (children, {...props}= {}) {
         <nav class="main-nav">
           <ul>
             <li>
-              ${RouterLink('', {url:'main', label: 'main' })}
+              ${RouterLink('', {url:'main', label: 'main', title: 'main | router-spa' })}
             </li>
             <li>
-              ${RouterLink('', {url:'cards', label: 'cards' })}
+              ${RouterLink('', {url:'cards', label: 'cards', title: 'cards | router-spa' })}
             </li>
           </ul>
         </nav>

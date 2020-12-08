@@ -12,8 +12,8 @@ function Card (children, {isFull = false, ...props}= {}) {
         ${ isFull ? `<div><span class="app-label">Email: </span>${props.email}</div>` : ''}
         <div class="link-nav">
           ${ !isFull
-            ? RouterLink('', {url: `full-card/${props.id}`, label: 'Full info' })
-            : RouterLink('', {url: `cards`, label: 'Back' })
+            ? RouterLink('', {url: `full-card/${props.id}`, label: 'Full info', title: props.first_name + ' | history-api' })
+            : RouterLink('', {url: `cards`, label: 'Back', title: 'cards | history-api' })
           }
         </div>
       </div>

@@ -1,19 +1,21 @@
 import './router-link.scss';
 
-function linkAction(e) {
-  e.preventDefault();
-  const url = e.target.getAttribute('to');
-  history.pushState(null, null, `/${url}`);
-  console.log('== navigate by router-link ' ,url)
-  e.stopPropagation();
+function linkAction(title) {
+  return (e) => {
+    if (title !== '') document.title = title;
+    e.preventDefault();
+    const url = e.target.getAttribute('to');
+    history.pushState(null, null, `/${url}`);
+    console.log('== navigate by router-link ' ,url)
+    e.stopPropagation();
+  }
 }
-function RouterLink (children, {url, label,  ...props}= {}) {
+function RouterLink (children, {url, label, title = '',  ...props}= {}) {
   const containerSelector = `app-router-link-${url.replace('/', '-')}-${label.replace(' ', '-')}`
-  setTimeout((selector) => {
+  setTimeout((selector, tit) => {
     let container = document.querySelector(`.${selector}`);
-    container.removeEventListener('click', linkAction);
-    container.addEventListener('click', linkAction, false);
-  }, 0, containerSelector);
+    container.addEventListener('click', linkAction(tit), false);
+  }, 0, containerSelector, title);
 
   function render () {
     return `
