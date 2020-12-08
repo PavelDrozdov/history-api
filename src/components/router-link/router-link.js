@@ -3,7 +3,6 @@ import './router-link.scss';
 function linkAction(e) {
   e.preventDefault();
   const url = e.target.getAttribute('to');
-  console.log(url)
   history.pushState(null, null, `/${url}`);
   console.log('== navigate by router-link ' ,url)
   e.stopPropagation();

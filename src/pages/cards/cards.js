@@ -1,11 +1,13 @@
 import { Layout, Search } from '../../components';
 import './cards.scss';
 import Data from '../../data/data';
+import { getQueryVariable } from '../../utils/query.utils';
 
 import { Card } from '../../components';
 
-function Cards (param, urlParam) {
-  const search = urlParam.has('search') ? urlParam.get('search') : '';
+function Cards (param, query) {
+
+  const search = getQueryVariable('search', query);
   const cards = Data.filter(i => i.first_name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1);
 
   function render () {

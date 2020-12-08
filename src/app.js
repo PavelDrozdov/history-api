@@ -2,11 +2,11 @@ import './scss/app.scss'
 import { Router } from './router';
 
 window.onload = (e) => {
-  console.log('onload')
+  console.log('== onload')
   app();
 };
 
-let oldURL = '';
+let oldURL = window.location.href;
 setInterval(() => {
   if(oldURL !== window.location.href ) {
     console.log('== setInterval init rerender');

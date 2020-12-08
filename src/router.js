@@ -1,12 +1,12 @@
 import { Main, Cards, FullCard } from './pages';
 
 
-function navigator(path, param, urlParams) {
+function navigator(path, param, query) {
   switch(path){
     case 'main':
       return Main(param);
     case 'cards':
-      return Cards(param, urlParams);
+      return Cards(param, query);
     case 'full-card':
       return FullCard(param);
     default:
@@ -15,10 +15,8 @@ function navigator(path, param, urlParams) {
 }
 
 const Router = () => {
-  const url = new URLSearchParams(location.pathname);
   const [_, path, param] = location.pathname.split('/');
-  console.log(path, param, url)
-  return navigator(path, param, url);
+  return navigator(path, param, window.location.search.substring(1));
 }
 
 export { Router }
